@@ -89,14 +89,14 @@ jobs:
     steps:
       - name: Check Docker image publication
         if: ${{ (contains(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main') && !needs.full.outputs.docker_images_published }}
-        uses: actions/github-script@dependabot/github_actions/docker/build-push-action-4
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed("Expected Docker images to have been published but output `docker_images_published` is false")
 
       - name: Check Docker manifest publication
         if: ${{ (contains(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main') && !needs.full.outputs.docker_manifest_published }}
-        uses: actions/github-script@dependabot/github_actions/docker/build-push-action-4
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed("Expected Docker manifest to have been published but output `docker_manifest_published` is false")
@@ -282,14 +282,14 @@ jobs:
     steps:
       - name: Check Docker image publication
         if: ${{ (contains(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main') && !needs.only_docker.outputs.docker_images_published }}
-        uses: actions/github-script@dependabot/github_actions/docker/build-push-action-4
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed("Expected Docker images to have been published but output `docker_images_published` is false")
 
       - name: Check Docker manifest publication
         if: ${{ (contains(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main') && !needs.only_docker.outputs.docker_manifest_published }}
-        uses: actions/github-script@dependabot/github_actions/docker/build-push-action-4
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed("Expected Docker manifest to have been published but output `docker_manifest_published` is false")
@@ -326,14 +326,14 @@ jobs:
     steps:
       - name: Check Docker image publication
         if: ${{ (contains(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main') && !needs.no_cross.outputs.docker_images_published }}
-        uses: actions/github-script@dependabot/github_actions/docker/build-push-action-4
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed("Expected Docker images to have been published but output `docker_images_published` is false")
 
       - name: Check Docker manifest publication
         if: ${{ (contains(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main') && !needs.no_cross.outputs.docker_manifest_published }}
-        uses: actions/github-script@dependabot/github_actions/docker/build-push-action-4
+        uses: actions/github-script@v6
         with:
           script: |
             core.setFailed("Expected Docker manifest to have been published but output `docker_manifest_published` is false")
