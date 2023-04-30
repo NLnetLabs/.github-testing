@@ -15,8 +15,6 @@ jobs:
     uses: NLnetLabs/ploutos/.github/workflows/pkg-rust.yml@v7.1.2
     secrets: inherit
     with:
-      runs_on: self-hosted
-
       artifact_prefix: test_with_alt_cargo_toml
       manifest_dir: virtual
       workspace_package: app
