@@ -12,7 +12,7 @@ on:
 
 jobs:
   test_with_alt_cargo_toml:
-    uses: NLnetLabs/ploutos/.github/workflows/pkg-rust.yml@v7.1.2
+    uses: NLnetLabs/ploutos/.github/workflows/pkg-rust.yml@v7.1.2-with-iptables-fix
     secrets: inherit
     with:
       artifact_prefix: test_with_alt_cargo_toml
