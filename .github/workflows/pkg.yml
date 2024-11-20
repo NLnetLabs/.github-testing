@@ -440,9 +440,6 @@ jobs:
         image:
           - "rockylinux:8"
           - "ubuntu:jammy"
-        mode:
-          - "fresh-install"
-          - "upgrade-from-published"
         target:
           - "x86_64"
 
@@ -455,7 +452,6 @@ jobs:
           - "ubuntu:jammy" # ubuntu/22.04
           - "centos:8"
         mode:
-          - "fresh-install"
           - "upgrade-from-published"
         target:
           - "x86_64"
