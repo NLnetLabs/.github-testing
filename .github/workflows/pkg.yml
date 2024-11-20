@@ -401,12 +401,12 @@ jobs:
 
       rpm_scriptlets_path: pkg/rpm/scriptlets.toml
 
-  test_with_alt_cargo_toml:
-    if: ${{ inputs.single_job == '' || inputs.single_job == 'test_with_alt_cargo_toml' }}
+  test_with_cargo_workspace:
+    if: ${{ inputs.single_job == '' || inputs.single_job == 'test_with_cargo_workspace' }}
     uses: NLnetLabs/ploutos/.github/workflows/pkg-rust.yml@v7
     secrets: inherit
     with:
-      artifact_prefix: test_with_alt_cargo_toml
+      artifact_prefix: test_with_cargo_workspace_
       manifest_dir: virtual
       workspace_package: app
 
@@ -420,3 +420,51 @@ jobs:
           - "fresh-install"
         target:
           - "x86_64"
+
+  test_with_obsolete_pkg_replacement:
+    if: ${{ inputs.single_job == '' || inputs.single_job == 'test_with_obsolete_pkg_replacement' }}
+    uses: NLnetLabs/ploutos/.github/workflows/pkg-rust.yml@120-upgrade-cargo-generate-rpm-to-support-posttrans
+    secrets: inherit
+    with:
+      artifact_prefix: test_with_obsolete_pkg_replacement_
+      manifest_dir: successor
+
+      package_build_rules: |
+        pkg:
+          - "successor"
+        image:
+          - "rockylinux:8"
+          - "ubuntu:jammy"
+        mode:
+          - "fresh-install"
+          - "upgrade-from-published"
+        target:
+          - "x86_64"
+
+      package_test_rules: |
+        pkg:
+          - "successor"
+        published_pkg:
+          - "mytest"
+        image:
+          - "ubuntu:jammy" # ubuntu/22.04
+          - "centos:8"
+        mode:
+          - "fresh-install"
+          - "upgrade-from-published"
+        target:
+          - "x86_64"
+
+      package_test_scripts_path: pkg/test-scripts/test-mytest-successor.sh
+
+      deb_apt_key_url: 'https://raw.githubusercontent.com/NLnetLabs/ploutos-testing/main/repo/apt-key.asc'
+      deb_apt_source: 'deb https://raw.githubusercontent.com/NLnetLabs/ploutos-testing/main/repo/linux/${OS_NAME}/ ${OS_REL} main'
+
+      rpm_scriptlets_path: pkg/rpm/scriptlets-successor.toml
+      rpm_yum_key_url: 'https://raw.githubusercontent.com/NLnetLabs/ploutos-testing/main/repo/yum-key.asc'
+      rpm_yum_repo: |
+        [nlnetlabs]
+        name=NLnet Labs
+        baseurl=https://raw.githubusercontent.com/NLnetLabs/ploutos-testing/main/repo/linux/centos/$releasever/main/$basearch
+        enabled=1
+    
