@@ -1,7 +1,6 @@
 #!/bin/sh -e
 
 echo "[prerm] DEBUG: $*"
-echo "[prerm] ERROR: $*"
 
 case "$1" in
 upgrade|remove)

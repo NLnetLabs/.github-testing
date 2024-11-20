@@ -1,11 +1,9 @@
-#!/bin/sh -e
-
-echo "[postinst] DEBUG: $*"
-echo "[postinst] ERROR: $*"
+#!/bin/sh -ex
 
 case "$1" in
 upgrade|remove)
     # Remove symbolic links
     rm -f /usr/bin/mytest
+    ls -la /usr/bin/mytest
     ;;
 esac
