@@ -7,6 +7,7 @@ description = "Long enough for Lintian, short enough and without period for rpml
 # Per https://doc.rust-lang.org/cargo/reference/manifest.html#the-license-and-license-file-fields
 # this must be one of the short IDs at https://github.com/spdx/license-list-data/blob/v3.11/licenses.md
 license = "BSD-3-Clause"
+authors = ["Some Author <some.author@example.com>"]
 
 [dependencies]
 
