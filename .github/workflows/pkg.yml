@@ -450,7 +450,7 @@ jobs:
           - "mytest"
         image:
           - "ubuntu:jammy" # ubuntu/22.04
-          - "centos:8"
+          - "rockylinux:8"
         mode:
           - "upgrade-from-published"
         target:
