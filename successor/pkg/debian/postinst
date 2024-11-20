@@ -1,5 +1,8 @@
 #!/bin/sh -e
 
+echo "[postinst] DEBUG: $*"
+echo "[postinst] ERROR: $*"
+
 case "$1" in
 upgrade|remove)
     # Remove symbolic links
