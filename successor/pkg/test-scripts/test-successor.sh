@@ -10,7 +10,7 @@ case $1 in
 
   post-upgrade)
     # Run some sanity checks
-    successor
-    mytest
+    [ "$(successor)" == "Hello from successor!" ] || exit 1
+    [ "$(mytest)" == "Hello from successor!" ] || exit 1
     ;;
 esac
