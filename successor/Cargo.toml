@@ -3,6 +3,7 @@
 name = "successor"
 version = "0.1.0"
 edition = "2021"
+description = "Long enough for Lintian, short enough and without period for rpmlint"
 
 [dependencies]
 
