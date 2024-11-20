@@ -1,0 +1,25 @@
+post_install_script = '''
+#!/bin/bash -e
+FORCE=
+if [ $1 -eq 2 ]; then
+    # Upgrade
+    FORCE=-f
+fi
+# Create symbolic link at same name as existing file installed by mytest package
+ln -s ${FORCE} /usr/bin/successor /usr/bin/mytest
+'''
+
+post_uninstall_script = '''
+#!/bin/bash -e
+#RPM_SYSTEMD_MACROS#
+if [ $1 -eq 0 ] ; then
+    # Uninstallation
+    # Remove symbolic links
+    rm -f /usr/bin/mytest
+fi
+'''
+
+# Requires new enough cargo-generate-rpm.
+post_trans_script = '''
+echo TODO
+'''
