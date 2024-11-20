@@ -5,12 +5,12 @@ set -x
 
 case $1 in
   post-install)
-    # Run some sanity checks
-    successor
-    mytest
+    # Nothing to do.
     ;;
 
   post-upgrade)
-    # Nothing to do.
+    # Run some sanity checks
+    successor
+    mytest
     ;;
 esac
