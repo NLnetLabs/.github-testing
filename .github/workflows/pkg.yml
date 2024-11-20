@@ -465,7 +465,7 @@ jobs:
       deb_apt_key_url: 'https://raw.githubusercontent.com/NLnetLabs/ploutos-testing/main/repo/apt-key.asc'
       deb_apt_source: 'deb https://raw.githubusercontent.com/NLnetLabs/ploutos-testing/main/repo/linux/${OS_NAME}/ ${OS_REL} main'
 
-      rpm_scriptlets_path: successor/pkg/rpm/scriptlets-successor.toml
+      rpm_scriptlets_path: successor/pkg/rpm/scriptlets.toml
       rpm_yum_key_url: 'https://raw.githubusercontent.com/NLnetLabs/ploutos-testing/main/repo/yum-key.asc'
       rpm_yum_repo: |
         [nlnetlabs]
